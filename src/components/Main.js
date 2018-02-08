@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import '../index.css';
 
 import Input from './Input';
 import GifList from './GifList';
-import { fetchList } from '../store/';
+import GifModal from './GifModal';
+import { fetchTranslateGif } from '../store/';
 
 class Main extends Component {
     constructor(props) {
@@ -21,15 +21,15 @@ class Main extends Component {
     render() {
         return (
         <div className="App">
-            <p className="App-intro">
-            Main gifs
-            </p>
             <Link to="/">
-            <h1>Home</h1>
+                <h1>Home</h1>
             </Link>
             <Input />
+            
             <button onClick={this.clickToFetch}>Fetch</button>
+           
             <GifList />
+            <GifModal />
         </div>
         );
     }
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
     handleFetchList(term) {
-        dispatch(fetchList(term));
+        dispatch(fetchTranslateGif(term));
     }
 });
 

@@ -3,11 +3,12 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import input from './input';
-import select from './select';
+import translate from './translate';
 import gifList from './gifList';
+import modal from './modal';
 
 
-const reducer = combineReducers({input, select, gifList})
+const reducer = combineReducers({input, translate, gifList, modal})
 
 const store = createStore(
   reducer,
@@ -19,5 +20,6 @@ const store = createStore(
 
 export default store;
 export * from './input';
-export * from './select';
+export * from './translate';
 export * from './gifList';
+export * from './modal';

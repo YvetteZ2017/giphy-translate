@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../index.css';
 import { setInput, setWord } from '../store';
 
 
@@ -26,10 +25,13 @@ class Input extends Component {
     render() {
         return (
             <div>
-            <form>
-                <input onChange={this.handleInputChange} value={this.state.text}/>
                 <button onClick={this.handleTranslate}>Translate</button>
-            </form>
+                <form>
+                    <input onChange={this.handleInputChange} value={this.state.text} style={{width: '50vh', height: '20vw'}}/>
+                </form>
+                <div className='input-view'>
+                    <p>{this.props.input}</p>
+                </div>  
             </div>
         );
     }
