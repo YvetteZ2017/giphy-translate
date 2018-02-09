@@ -4,11 +4,11 @@ import { createLogger } from 'redux-logger';
 
 import input from './input';
 import translate from './translate';
-import gifList from './gifList';
+import gifs from './gifs';
 import modal from './modal';
 
 
-const reducer = combineReducers({input, translate, gifList, modal})
+const reducer = combineReducers({input, translate, gifs, modal})
 
 const store = createStore(
   reducer,
@@ -21,5 +21,5 @@ const store = createStore(
 export default store;
 export * from './input';
 export * from './translate';
-export * from './gifList';
+export * from './gifs';
 export * from './modal';

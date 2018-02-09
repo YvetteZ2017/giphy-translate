@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 
 import Input from './Input';
 import GifList from './GifList';
+import GifItem from './GifItem';
 import GifModal from './GifModal';
+import ViewTerm from './ViewTerm';
 import { fetchTranslateGif } from '../store/';
+
 
 class Main extends Component {
     constructor(props) {
@@ -24,11 +27,16 @@ class Main extends Component {
             <Link to="/">
                 <h1>Home</h1>
             </Link>
-            <Input />
-            
-            <button onClick={this.clickToFetch}>Fetch</button>
-           
-            <GifList />
+            <div className="flex">
+                <Input />
+                <div className="flex-col">
+                    <ViewTerm />
+                    {
+                        this.props.main && <GifItem image={this.props.main} main={true} className='main-image'/>
+                    }
+                </div>
+            </div>
+                <GifList />
             <GifModal />
         </div>
         );
@@ -39,6 +47,7 @@ const mapStateToProps = (state) => {
     return {
         input: state.input,
         select: state.select,
+        main: state.gifs[0]
     }
 }
 

@@ -1,44 +1,48 @@
 import axios from 'axios';
 
+
 const TRANSLATE_PATH = 'https://api.giphy.com/v1/gifs/translate';
 const SEARCH_PATH = 'https://api.giphy.com/v1/gifs/search';
 const API_KEY = 'dc6zaTOxFJmzC';
 
-const SET_LIST = 'SET_LIST';
+
+//action types
+const SET_GIF_LIST = 'SET_GIF_LIST';
 const SET_MAIN_IMG = 'SET_MAIN_IMG';
 
 
-export const setMainImg = (image) => ({
+//action creators
+export const setMainImg = (arr) => ({
   type: SET_MAIN_IMG,
-  image
+  arr
 });
 
 export const setList = (list, mainId) => ({
-    type: SET_LIST,
+    type: SET_GIF_LIST,
     list,
     mainId
 });
 
 
-export const fetchTranslateGif = (word) => {
+//thunk creators
+export const fetchTranslateGif = (term) => {
     return function thunk (dispatch) {
-        axios.get(`${TRANSLATE_PATH}?api_key=${API_KEY}&s=${word}`)
+        axios.get(`${TRANSLATE_PATH}?api_key=${API_KEY}&s=${term}`)
         .then(res => {
             let mainImage = res.data.data;
             let mainId = mainImage.id
             dispatch(setMainImg([mainImage]));
-            console.log('mainId', mainId)
             return mainId;
         }).then((mainId) => {
-            dispatch(fetchList(word, mainId));
+            dispatch(fetchGifList(term, mainId));
         })
         .catch(() => console.log('Fetching main image unsuccessful'));
     };
 }
 
-export const fetchList = (word, mainId) => {
+export const fetchGifList = (term, mainId) => {
     return function thunk (dispatch) {
-        axios.get(`${SEARCH_PATH}?q=${word}&api_key=${API_KEY}`)
+        axios.get(`${SEARCH_PATH}?q=${term}&api_key=${API_KEY}`)
         .then(res => {
             let list = res.data.data;
             dispatch(setList(list, mainId));
@@ -48,21 +52,21 @@ export const fetchList = (word, mainId) => {
 }
 
 
+//reducer
 export default function(state = [], action) {
     let newState = state;
     switch (action.type) {
     
     case SET_MAIN_IMG:
-        newState = action.image;
+        if(action.arr[0].length) {
+            newState = action.arr;
+        }
         return newState;
 
-    case SET_LIST:
-    let list = action.list.filter(image => image.id !== action.mainId);
-    console.log('id', action)
-    console.log('list',list)
-    let set = new Set(list);
-    let setList = [...set];
-    console.log('image list', action.list.length, setList.length)
+    case SET_GIF_LIST:
+        let list = action.list.filter(image => image.id !== action.mainId);
+        let set = new Set(list);
+        let setList = [...set];
         newState = state.concat(setList);
         return newState;
     

@@ -57,7 +57,7 @@ const modalStyle = {
 		zIndex: 3,
 		position: 'fixed',
 		justifyContent: 'center',
-		// left: 0,
+		left: 0,
 		border: 0,
 	}
 }
