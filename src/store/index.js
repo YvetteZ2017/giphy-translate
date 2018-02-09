@@ -14,7 +14,7 @@ const store = createStore(
   reducer,
   applyMiddleware(
     thunkMiddleware,
-    createLogger({ collapsed: true })
+    createLogger({ collapsed: true }),
   )
 );
 
@@ -23,3 +23,4 @@ export * from './input';
 export * from './translate';
 export * from './gifs';
 export * from './modal';
+export * from './thunk';

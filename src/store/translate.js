@@ -1,5 +1,3 @@
-import { fetchTranslateGif } from './'
-
 const initialState = {
     termList: [],
     term:'',
@@ -27,27 +25,6 @@ export const getPrevTerm = () => ({
 });
 
 
-//thunk creators
-// export const translateNext = () => {
-//     return function thunk (dispatch) {
-//         dispatch(getNextTerm())
-//         .then(() => {
-//             dispatch(fetchTranslateGif(state.term));
-//         })
-//         .catch(() => console.log('Translating next term unsuccessful'));
-//     }
-// }
-
-// export const translatePrev = () => {
-//     return function thunk (dispatch) {
-//         dispatch(getPrevTerm())
-//         .then(() => {
-//             dispatch(fetchTranslateGif(state.term));
-//         })
-//         .catch(() => console.log('Translating next term unsuccessful'));
-//     }
-// }
-
 //reducer
 export default function(state = initialState, action) {
     let newState = state;
@@ -60,7 +37,7 @@ export default function(state = initialState, action) {
         return newState;
 
     case GET_NEXT_TERM:
-        if(state.id < state.termList.length - 2) {
+        if(state.id < state.termList.length - 1) {
            id++;
            term = state.termList[id];
         }

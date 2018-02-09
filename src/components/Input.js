@@ -6,12 +6,13 @@ import { setInput, setTermList, fetchTranslateGif } from '../store';
 class Input extends Component {
     constructor(props) {
         super(props);
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleTranslate = this.handleTranslate.bind(this);
         this.state = {
             text: '',
-            method: true
         }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleTranslate = this.handleTranslate.bind(this);
+        this.generateList = this.generateList.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     handleInputChange(ev) {
@@ -21,7 +22,17 @@ class Input extends Component {
 
     handleTranslate(ev) {
         ev.preventDefault();
-        this.props.changeInput(this.state.text, ev.target.method.value);
+        this.generateList(ev.target.method.value, this.state.text);
+        
+    }
+
+    generateList(bool, text) {
+        const regex = bool === 'true' ? /\w+/g : /[^\.!\?]+[\.!\?]+/g; //if bool === true, translate by word; else, translate by sentence
+        let termList = text.match(regex);
+        if(!termList) {
+            termList = [text];
+        }
+        this.props.changeInput(this.state.text, termList);
     }
 
     handleClear() {
@@ -51,11 +62,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    changeInput(text, bool) {
-        let regex = bool ? /\w+/g : /[^\.!\?]+[\.!\?]+/g; //if bool === true, translate by word; else, translate by sentence
-        let termList = text.match(regex);
-        let a = bool? 1 : 2;
-        console.log(a);
+    changeInput(text, termList) {
         dispatch(setInput(text));
         dispatch(setTermList(termList));
         dispatch(fetchTranslateGif(termList[0]));

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getNextTerm, getPrevTerm } from '../store';
+import store, { translateNext, translatePrev } from '../store';
 
 
 class ViewTerm extends Component {
@@ -35,10 +35,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     prevTerm() {
-        dispatch(getPrevTerm());
+        store.dispatch(translatePrev())
     },
     nextTerm() {
-        dispatch(getNextTerm());
+        store.dispatch(translateNext())
     },
 });
 
