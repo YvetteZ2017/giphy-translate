@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setWordToTranslate, fetchTranslateGif, getNextTerm, getPrevTerm } from '../store';
+import { getNextTerm, getPrevTerm } from '../store';
 
 
 class ViewTerm extends Component {
@@ -23,14 +23,14 @@ class ViewTerm extends Component {
             <div className='term-view'>
                 <button onClick={this.handlePrev}>Previous</button>
                 <button onClick={this.handleNext}>Next</button>
-                <p className='term'>{this.props.translate}</p>
+                <p className='term'>{this.props.translate.term}</p>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    selectedTerm: state.translate
+    translate: state.translate
 })
 
 const mapDispatchToProps = (dispatch) => ({

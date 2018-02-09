@@ -1,13 +1,18 @@
+import { fetchTranslateGif } from './'
+
 const initialState = {
     termList: [],
     term:'',
     id: 0
 }
 
+//action types
 const SET_TERM_LIST = 'SET_TERM_LIST';
 const GET_NEXT_TERM = 'GET_NEXT_TERM';
 const GET_PREV_TERM = 'GET_PREV_TERM';
 
+
+//action creators
 export const setTermList = (termList) => ({
   type: SET_TERM_LIST,
   termList
@@ -21,6 +26,29 @@ export const getPrevTerm = () => ({
     type: GET_PREV_TERM,
 });
 
+
+//thunk creators
+// export const translateNext = () => {
+//     return function thunk (dispatch) {
+//         dispatch(getNextTerm())
+//         .then(() => {
+//             dispatch(fetchTranslateGif(state.term));
+//         })
+//         .catch(() => console.log('Translating next term unsuccessful'));
+//     }
+// }
+
+// export const translatePrev = () => {
+//     return function thunk (dispatch) {
+//         dispatch(getPrevTerm())
+//         .then(() => {
+//             dispatch(fetchTranslateGif(state.term));
+//         })
+//         .catch(() => console.log('Translating next term unsuccessful'));
+//     }
+// }
+
+//reducer
 export default function(state = initialState, action) {
     let newState = state;
     let id = state.id;
