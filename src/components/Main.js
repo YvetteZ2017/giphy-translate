@@ -23,21 +23,29 @@ class Main extends Component {
 
     render() {
         return (
-        <div className="App">
-            <Link to="/">
-                <h1>Home</h1>
+        <div className="main-page">
+            <section id='section-translate'>
+            <Link className="link-home" to="/">
+                <h2>GIPHY TRANSLATE</h2>
+                <div className="home-icon"><i className="fab fa-sistrix fa-4x"></i></div>
             </Link>
             <div className="flex">
                 <Input />
                 <div className="flex-col">
                     <ViewTerm />
                     {
-                        this.props.main && <GifItem image={this.props.main} main={true} className='main-image'/>
+                        this.props.main && <GifItem image={this.props.main} main={true} id='main-image'/>
                     }
                 </div>
             </div>
+            <div className='arrow-down'>
+                <i className="fas fa-angle-double-down fa-2x"></i>
+            </div>
+            </section>
+            <section id='section-search'>
                 <GifList />
-            <GifModal />
+            </section>
+                <GifModal />
         </div>
         );
     }

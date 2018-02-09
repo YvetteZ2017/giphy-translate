@@ -12,9 +12,9 @@ const GifModal = (props) => {
 			onRequestClose={props.clickToColse}>
 			{
 				props.selectedImg ?
-			<div>
-			<img src={ props.selectedImg.images.original.url} alt={props.selectedImg.title} />
-			<a href={ props.selectedImg.url }>View the gif on Giphy.com</a>
+			<div className='gif-modal'>
+			<img className='modal-image' src={ props.selectedImg.images.original.url} alt={props.selectedImg.title} />
+			<a href={ props.selectedImg.url }>View on Giphy.com</a>
 			</div> : null
 			}
 		</Modal>
@@ -40,7 +40,7 @@ Modal.setAppElement(document.getElementById('root'));
 
 const modalStyle = {
 	overlay: {
-		backgroundColor: 'rgba(255, 255, 255, 0.7)',
+		backgroundColor: 'rgba(0, 0, 0, 0.7)',
 		zIndex: 3,
 		position: 'fixed',
 		left: 0,
@@ -49,15 +49,18 @@ const modalStyle = {
 	},
 	content: {
 		color: 'black',
+		backgroundColor: 'black',
 		backgroundRepeat: 'no-repeat',
 		outline: 'none',
-		height: '79.6%',
-		width: '62%',
+		height: '60%',
+		width: '60%',
 		margin: 'auto',
+		padding: 0,
 		zIndex: 3,
 		position: 'fixed',
 		justifyContent: 'center',
-		left: 0,
+		alignItems: 'center',
+		display: 'flex',
 		border: 0,
 	}
 }
