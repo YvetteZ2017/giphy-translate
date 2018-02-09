@@ -52,7 +52,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     changeInput(text, bool) {
-        let regex = bool ? /\w+/ : /[^\.!\?]+[\.!\?]+/; //if bool === true, translate by word; else, translate by sentence
+        let regex = bool ? /\w+/g : /[^\.!\?]+[\.!\?]+/g; //if bool === true, translate by word; else, translate by sentence
         let termList = text.match(regex);
         dispatch(setInput(text));
         dispatch(setTermList(termList));

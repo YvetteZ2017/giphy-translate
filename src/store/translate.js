@@ -24,6 +24,7 @@ export const getPrevTerm = () => ({
 export default function(state = initialState, action) {
     let newState = state;
     let id = state.id;
+    let term = state.term;
     switch (action.type) {
 
     case SET_TERM_LIST:
@@ -32,16 +33,18 @@ export default function(state = initialState, action) {
 
     case GET_NEXT_TERM:
         if(state.id < state.termList.length - 2) {
-           id = state.id++;
+           id++;
+           term = state.termList[id];
         }
-        newState = {...state, id, term: state.termList[id]}
+        newState = Object.assign({}, state, {id, term});
         return newState;
     
-    case GET_NEXT_TERM:
+    case GET_PREV_TERM:
         if(state.id > 0) {
-           id = state.id--;
+           id--;
+           term = state.termList[id];
         }
-        newState = {...state, id, term: state.termList[id]}
+        newState = Object.assign({}, state, {id, term})
         return newState;
 
     default:
