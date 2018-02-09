@@ -54,6 +54,8 @@ const mapDispatchToProps = (dispatch) => ({
     changeInput(text, bool) {
         let regex = bool ? /\w+/g : /[^\.!\?]+[\.!\?]+/g; //if bool === true, translate by word; else, translate by sentence
         let termList = text.match(regex);
+        let a = bool? 1 : 2;
+        console.log(a);
         dispatch(setInput(text));
         dispatch(setTermList(termList));
         dispatch(fetchTranslateGif(termList[0]));

@@ -58,8 +58,10 @@ export default function(state = [], action) {
     switch (action.type) {
     
     case SET_MAIN_IMG:
-        if(action.arr[0].length) {
+        if(action.arr[0].type === 'gif') { //If fetched gif by translation
             newState = action.arr;
+        } else {
+            newState = [];
         }
         return newState;
 
