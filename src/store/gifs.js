@@ -3,7 +3,6 @@ import axios from 'axios';
 
 const TRANSLATE_PATH = 'https://api.giphy.com/v1/gifs/translate';
 const SEARCH_PATH = 'https://api.giphy.com/v1/gifs/search';
-// const API_KEY = 'dc6zaTOxFJmzC';
 const API_KEY = 'XiHDqEs47dtn2azybnY2qz1yNF5ogv7J';
 
 
