@@ -41,7 +41,7 @@ export default function(state = initialState, action) {
            id++;
            term = state.termList[id];
         }
-        newState = Object.assign({}, state, {id, term});
+        newState = {...state, id, term};
         return newState;
     
     case GET_PREV_TERM:
@@ -49,7 +49,7 @@ export default function(state = initialState, action) {
            id--;
            term = state.termList[id];
         }
-        newState = Object.assign({}, state, {id, term})
+        newState = {...state, id, term};
         return newState;
 
     default:

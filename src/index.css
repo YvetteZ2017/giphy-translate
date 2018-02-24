@@ -27,7 +27,7 @@ body {
   position: fixed;
   left: -20vw;
   top: 30vh;
-  animation: gif 5s linear 2s infinite;
+  animation: gif 7s linear 2s infinite;
 }
 
 
@@ -44,29 +44,8 @@ body {
 }
 
 .start:hover {
-  color: white;
-  border: 0;
-}
-
-.start::before {
-  content: '';
-  display: block;
-  height: 2px;
-  position: absolute;
-  bottom: 0;
-  right: 1.25rem;
-  left: 1.25rem;
-  background-color: #84b5ff;;
-  transition: all .3s cubic-bezier(.2, 0, 0, 1);
-  z-index: -1;
-  visibility: hidden;
-}
-
-.start:hover::before {
-  right: 0;
-  left: 0;
-  height: 110%;
-  visibility: visible;
+  transition: all 0.3s cubic-bezier(.2, 0, 0, 1);
+  transform: scale(1.2, 1.2)
 }
 
 .home-title {
@@ -167,6 +146,8 @@ body {
   height: 5vh;
   width: 30vw;
   text-align: center;
+  white-space: nowrap;
+  overflow: scroll;
 }
 
 .flex-col .gif-item img {

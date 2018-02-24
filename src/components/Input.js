@@ -27,7 +27,7 @@ class Input extends Component {
     }
 
     generateList(bool, text) {
-        const regex = bool === 'true' ? /\w+/g : /[^.!?]+[.!?]+/g; //if bool === true, translate by word; else, translate by sentence
+        const regex = bool === 'true' ? /\w+/g : /([^,.!?\s](\w|\d)+(\s(\w|\d)+)*)/g; //if bool === true, translate by word; else, translate by sentence
         let termList = text.match(regex);
         if(!termList) {
             termList = [text];
