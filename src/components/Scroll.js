@@ -15,8 +15,8 @@ class Scroll extends Component {
 
     scrollStep() {
         if(this.props.gifs && this.props.gifs.length > 1) {
-            if (window.pageYOffset + (+this.props.scrollStepInPx) > window.innerHeight) {
-                window.scroll(0, window.innerHeight);
+            if (window.pageYOffset + (+this.props.scrollStepInPx) > window.innerHeight - 200) {
+                window.scroll(0, window.innerHeight - 200);
                 clearInterval(this.state.intervalId);
             } else {
                 window.scroll(0, window.pageYOffset + (+this.props.scrollStepInPx));

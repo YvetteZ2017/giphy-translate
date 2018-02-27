@@ -34,7 +34,7 @@ class Main extends Component {
                         <ViewTerm />
                         {
                             this.props.main ?
-                            <GifItem image={this.props.main} main={true} id='main-image'/> :
+                            <GifItem image={this.props.main} main={true}/> :
                             <div className="place-holder"></div>
                         }
                     </div>

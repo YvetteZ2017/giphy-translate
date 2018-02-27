@@ -40,14 +40,14 @@ class Input extends Component {
     render() {
         return (
             <div className="input-component">
-                <form onSubmit={this.handleTranslate}>
+                <form onSubmit={this.handleTranslate} className="form-inline">
                     <select name='method' className="form-control input-buttons form-select" required>
                         <option value={true}>by Word</option>
                         <option value={false}>by Sentence</option>
                     </select>
                     <button className="btn btn-primary input-buttons" type='submit'>Translate</button>
                     <button className="btn btn-primary input-buttons" onClick={this.handleClear}>Clear</button>
-                    <textarea className='input-box' onChange={this.handleInputChange} value={this.state.text} placeholder='Type your text here. Choose either translate word by word or sentence by sentence'/>
+                    <textarea className='input-box' onChange={this.handleInputChange} value={this.state.text} placeholder='Type here. Choose either translate by word or by sentence'/>
                 </form>
             </div>
         );
