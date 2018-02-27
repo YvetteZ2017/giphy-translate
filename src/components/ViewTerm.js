@@ -11,26 +11,31 @@ class ViewTerm extends Component {
     }
 
     handleNext() {
-        this.props.nextTerm();
+        if(this.props.gifs.length) {
+            this.props.nextTerm();
+        }
     }
 
     handlePrev() {
-        this.props.prevTerm();
+        if(this.props.gifs.length) {
+            this.props.prevTerm();
+        }
     }
 
     render() {
         return (
             <div className='term-view'>
-                <a onClick={this.handlePrev} className='arrow'><i className="fas fa-angle-double-left fa-2x"></i></a>
+                <div className='arrow'><a onClick={this.handlePrev}><i className="fas fa-angle-double-left fa-2x"></i></a></div>
                 <p>{this.props.translate.term}</p>
-                <a onClick={this.handleNext} className='arrow'><i className="fas fa-angle-double-right fa-2x"></i></a>
+                <div className='arrow'><a onClick={this.handleNext}><i className="fas fa-angle-double-right fa-2x"></i></a></div>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
-    translate: state.translate
+    translate: state.translate,
+    gifs: state.gifs
 })
 
 const mapDispatchToProps = (dispatch) => ({

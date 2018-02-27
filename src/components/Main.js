@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Input from './Input';
-import GifList from './GifList';
-import GifItem from './GifItem';
-import GifModal from './GifModal';
-import ViewTerm from './ViewTerm';
-import Scroll from './Scroll';
+import { Input, GifList, GifItem, GifModal, ViewTerm, Scroll } from './';
 import { fetchTranslateGif } from '../store/';
 
 

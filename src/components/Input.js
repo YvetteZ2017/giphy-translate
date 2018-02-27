@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setInput, setTermList, fetchTranslateGif } from '../store';
 
-
 class Input extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +26,6 @@ class Input extends Component {
     }
 
     generateList(bool, text) {
-        // const regex = bool === 'true' ? /\w+/g : /[^,.!?\s]([a-zA-Z0-9_'])*(\s[a-zA-Z0-9_']+)*/g; //if bool === true, translate by word; else, translate by sentence
         let termList = bool === 'true' ? text.match(/\w+/g) : text.replace(/"|"/g, '').match(/[^,.!?\s]([a-zA-Z0-9_'])*(\s[a-zA-Z0-9_']+)*/g);
         if(!termList) {
             termList = [text];

@@ -219,6 +219,9 @@ body {
   color: #67A4FB;
 }
 
+.arrow:disabled {
+  color: #a8cbfd;
+}
 
 .arrow-down {
   color: #a8cbfd;
@@ -236,7 +239,7 @@ body {
 }
 
 #section-search {
-  margin: 4vh auto 10vh auto;
+  margin: 2vh auto 10vh auto;
 }
 
 /* ---------------Grid-------------------- */
@@ -284,6 +287,8 @@ body {
   padding: 0.5em;
 }
 
+
+/* ---------------Responsive-------------------- */
 
 @media only screen and (min-width: 400px) {
 }

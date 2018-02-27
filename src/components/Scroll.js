@@ -18,8 +18,9 @@ class Scroll extends Component {
             if (window.pageYOffset + (+this.props.scrollStepInPx) > window.innerHeight) {
                 window.scroll(0, window.innerHeight);
                 clearInterval(this.state.intervalId);
+            } else {
+                window.scroll(0, window.pageYOffset + (+this.props.scrollStepInPx));
             }
-            window.scroll(0, window.pageYOffset + (+this.props.scrollStepInPx));
         } else {
             clearInterval(this.state.intervalId);
         }
