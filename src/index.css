@@ -77,6 +77,7 @@ body {
   background: rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 #main-view {
@@ -99,6 +100,7 @@ body {
   position: relative;
   width: 17em;
   padding: 0.5em;
+  min-height: 5em;
 }
 
 .link-home h2 {
@@ -139,14 +141,14 @@ body {
 .place-holder {
   background: rgba(225, 225, 225, 0);
   border: 1px solid white;
-  height: 65vh;
+  min-height: 65vh;
   width: 40vw;
   margin: 1em auto;
   border-radius: 5px;
 }
 
 .flex-col .gif-item {
-  height: 65vh;
+  min-height: 65vh;
   width: 40vw;
   margin: 1em auto;
   display: flex;
@@ -198,7 +200,8 @@ body {
   display: flex;
   justify-content: space-between;
   width: 40vw;
-  margin-top: 6vh;
+  margin: 2em auto 1em auto;
+  min-height: 2em;
 }
 
 .term-view::-webkit-scrollbar {
@@ -219,23 +222,17 @@ outline: 1px solid slategrey;
   background-color: rgba(225,225,225,0.2);
   color: white;
   font-size: 1em;
-  height: 5vh;
   width: 30vw;
   text-align: center;
   white-space: nowrap;
   overflow: scroll;
+  margin: 0 auto;
 }
 
-
-.flex-col .gif-item img {
-  /* width: 30vw; */
-  /* height: calc(55vh - 5vh - 1.1em); */
-}
 
 .arrow-down {
   color: #a8cbfd;
   text-align: center;
-  margin: 5vh 0;
   width: 4em;
   align-self: center;
 }
@@ -338,4 +335,9 @@ outline: 1px solid slategrey;
   }
 }
 
+@media screen and (max-height: 530px) {
+  .arrow-down {
+    visibility: hidden;
+  }
+}
 

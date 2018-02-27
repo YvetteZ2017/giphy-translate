@@ -18,7 +18,6 @@ class Scroll extends Component {
             clearInterval(this.state.intervalId);
         }
         window.scroll(0, window.pageYOffset + (+this.props.scrollStepInPx));
-        console.log(window.innerHeight,window.pageYOffset, this.props.scrollStepInPx)
     }
 
     scrollDown() {
