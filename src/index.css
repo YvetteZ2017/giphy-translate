@@ -304,7 +304,7 @@ form {
 
 /* ---------------Responsive-------------------- */
 
-@media screen and (max-height: 620px) {
+@media screen and (max-height: 650px) {
   .link-home .home-icon {
     visibility: hidden;
   }
