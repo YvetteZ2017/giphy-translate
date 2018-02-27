@@ -47,7 +47,7 @@ class Input extends Component {
                     </select>
                     <button className="btn btn-primary input-buttons" type='submit'>Translate</button>
                     <button className="btn btn-primary input-buttons" onClick={this.handleClear}>Clear</button>
-                    <textarea className='input-box' onChange={this.handleInputChange} value={this.state.text} placeholder='Type here. Choose either translate by word or by sentence'/>
+                    <textarea className='input-box' onChange={this.handleInputChange} value={this.state.text} placeholder='Type here. Choose either translate by word or by sentence. Select term for translation from your paragraph by clicking on the left or right arrow below.'/>
                 </form>
             </div>
         );
