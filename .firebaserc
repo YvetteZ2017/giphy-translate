@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "giphy-graph-translate": "giphy-translate",
+    "default": "giphy-translate"
+  }
+}

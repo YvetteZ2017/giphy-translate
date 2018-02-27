@@ -27,8 +27,8 @@ class Input extends Component {
     }
 
     generateList(bool, text) {
-        const regex = bool === 'true' ? /\w+/g : /([^,.!?\s](\w|\d)+(\s(\w|\d)+)*)/g; //if bool === true, translate by word; else, translate by sentence
-        let termList = text.match(regex);
+        // const regex = bool === 'true' ? /\w+/g : /[^,.!?\s]([a-zA-Z0-9_'])*(\s[a-zA-Z0-9_']+)*/g; //if bool === true, translate by word; else, translate by sentence
+        let termList = bool === 'true' ? text.match(/\w+/g) : text.replace(/"|"/g, '').match(/[^,.!?\s]([a-zA-Z0-9_'])*(\s[a-zA-Z0-9_']+)*/g);
         if(!termList) {
             termList = [text];
         }
@@ -43,12 +43,12 @@ class Input extends Component {
         return (
             <div className="input-component">
                 <form onSubmit={this.handleTranslate}>
-                    <select name='method' className="input-buttons" required>
+                    <select name='method' className="form-control input-buttons form-select" required>
                         <option value={true}>by Word</option>
                         <option value={false}>by Sentence</option>
                     </select>
-                    <button className="input-buttons" type='submit'>Translate</button>
-                    <button className="input-buttons" onClick={this.handleClear}>Clear</button>
+                    <button className="btn btn-primary input-buttons" type='submit'>Translate</button>
+                    <button className="btn btn-primary input-buttons" onClick={this.handleClear}>Clear</button>
                     <textarea className='input-box' onChange={this.handleInputChange} value={this.state.text} placeholder='Type your text here. Choose either translate word by word or sentence by sentence'/>
                 </form>
             </div>

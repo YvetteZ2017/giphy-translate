@@ -6,7 +6,7 @@ class Home extends Component {
     return (
       <div className="home-page">
           <img className="home-gif" src={'./cat.gif'} alt="Giphy~"/>
-          <h1 className="home-title">GIPHY TRANSLATE</h1>
+          <h1 className="home-title">GIFI TRANSLATE</h1>
           <Link to="/main">
             <p className="start">START</p>
           </Link>

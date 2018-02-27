@@ -7,6 +7,7 @@ import GifList from './GifList';
 import GifItem from './GifItem';
 import GifModal from './GifModal';
 import ViewTerm from './ViewTerm';
+import Scroll from './Scroll';
 import { fetchTranslateGif } from '../store/';
 
 
@@ -24,28 +25,31 @@ class Main extends Component {
     render() {
         return (
         <div className="main-page">
-            <section id='section-translate'>
-            <Link className="link-home" to="/">
-                <h2>GIPHY TRANSLATE</h2>
-                <div className="home-icon"><i className="fab fa-sistrix fa-4x"></i></div>
-            </Link>
-            <div className="flex">
+            <div id='menu'>
+                <Link className="link-home" style={{textDecoration: "none"}} to="/">
+                    <h2>GIFI TRANSLATE</h2>
+                    <div className="home-icon"><i className="fab fa-sistrix fa-4x"></i></div>
+                </Link>
                 <Input />
-                <div className="flex-col">
-                    <ViewTerm />
-                    {
-                        this.props.main && <GifItem image={this.props.main} main={true} id='main-image'/>
-                    }
-                </div>
             </div>
-            <div className='arrow-down'>
-                <i className="fas fa-angle-double-down fa-2x"></i>
-            </div>
-            </section>
-            <section id='section-search'>
-                <GifList />
-            </section>
+
+            <div id='main-view'>
+                <section id='section-view'>
+                    <div className="flex-col">
+                        <ViewTerm />
+                        {
+                            this.props.main ?
+                            <GifItem image={this.props.main} main={true} id='main-image'/> :
+                            <div className="place-holder"></div>
+                        }
+                    </div>
+                    <Scroll scrollStepInPx="50" delayInMs="20"/>
+                </section>
+                <section id='section-search'>
+                    <GifList />
+                </section>
                 <GifModal />
+            </div>
         </div>
         );
     }
@@ -67,3 +71,8 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
+
+// <div className='arrow-down'>
+// <p>More</p>
+// <i className="fas fa-angle-double-down fa-2x"></i>
+// </div>
