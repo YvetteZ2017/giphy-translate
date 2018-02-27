@@ -22,8 +22,8 @@ body {
 }
 
 .home-gif {
-  width: 18em;
-  height: auto;
+  max-height: 18em;
+  height: 30vh;
   position: fixed;
   left: -30vw;
   top: 30vh;
@@ -40,7 +40,7 @@ body {
   font-size: 1.2em;
   border: 2px solid #84b5ff;
   left: calc((100vw - 88.22px)/2);
-  bottom: 10vh;
+  top: 80vh;
 }
 
 .start:hover {
@@ -50,7 +50,7 @@ body {
 
 .home-title {
   position: fixed;
-  bottom: 20vh;
+  top: 65vh;
   left: calc((100vw - 262.5px)/ 2);
   font-size: 2em;
   font-weight: 700;
@@ -341,3 +341,23 @@ outline: 1px solid slategrey;
   }
 }
 
+@media screen and (max-height: 300px) {
+  .start {
+    font-size: 7vh;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  
+    .flex-col .gif-item {
+      max-width: 56vw;
+    }
+
+    .flex-col .gif-item img{
+      max-width: 56vw;
+    }
+  
+    .term-view {
+      width: 56vw;
+    }
+  }
