@@ -109,9 +109,9 @@ body {
   margin-right: 0.4em;
   align-items: center;
   color: white;
-  /* background: linear-gradient(330deg, #3494e6, #ec6ead);
+  background: linear-gradient(330deg, #3494e6, #ec6ead);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
+  -webkit-text-fill-color: transparent;
 }
 
 @keyframes logo-spin {
@@ -204,20 +204,6 @@ body {
   min-height: 2em;
 }
 
-.term-view::-webkit-scrollbar {
-  width: 1em;
-}
-
-.term-view::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-
-.term-view::-webkit-scrollbar-thumb {
-background-color: darkgrey;
-outline: 1px solid slategrey;
-}
-
-
 .term-view p {
   background-color: rgba(225,225,225,0.2);
   color: white;
@@ -229,6 +215,10 @@ outline: 1px solid slategrey;
   margin: 0 auto;
 }
 
+.arrow:hover {
+  color: #67A4FB;
+}
+
 
 .arrow-down {
   color: #a8cbfd;
@@ -237,7 +227,7 @@ outline: 1px solid slategrey;
   align-self: center;
 }
 
-.arrow-down i:hover {
+.arrow-down:hover {
   color: #67A4FB;
 }
 

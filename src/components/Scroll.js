@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
   
 class Scroll extends Component {
@@ -13,11 +14,15 @@ class Scroll extends Component {
     }
 
     scrollStep() {
-        if (window.pageYOffset + (+this.props.scrollStepInPx) > window.innerHeight) {
-            window.scroll(0, window.innerHeight);
+        if(this.props.gifs && this.props.gifs.length > 1) {
+            if (window.pageYOffset + (+this.props.scrollStepInPx) > window.innerHeight) {
+                window.scroll(0, window.innerHeight);
+                clearInterval(this.state.intervalId);
+            }
+            window.scroll(0, window.pageYOffset + (+this.props.scrollStepInPx));
+        } else {
             clearInterval(this.state.intervalId);
         }
-        window.scroll(0, window.pageYOffset + (+this.props.scrollStepInPx));
     }
 
     scrollDown() {
@@ -33,4 +38,10 @@ class Scroll extends Component {
         }
 }
 
-export default Scroll;
+const mapStateToProps = (state) => {
+    return {
+        gifs: state.gifs
+    }
+}
+
+export default connect(mapStateToProps)(Scroll);

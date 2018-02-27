@@ -21,9 +21,9 @@ class ViewTerm extends Component {
     render() {
         return (
             <div className='term-view'>
-                <a onClick={this.handlePrev}><i className="fas fa-angle-double-left fa-2x"></i></a>
+                <a onClick={this.handlePrev} className='arrow'><i className="fas fa-angle-double-left fa-2x"></i></a>
                 <p>{this.props.translate.term}</p>
-                <a onClick={this.handleNext}><i className="fas fa-angle-double-right fa-2x"></i></a>
+                <a onClick={this.handleNext} className='arrow'><i className="fas fa-angle-double-right fa-2x"></i></a>
             </div>
         );
     }
