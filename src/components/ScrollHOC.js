@@ -16,7 +16,7 @@ const ScrollHOC = (Wrapped) => {
 
         scrollDownStep() {
             const location = this.props.location;
-            if(this.props.enable) {
+            if(this.props.enable === 'true') {
                 if (window.pageYOffset + scrollDownStepInPx > location * window.innerHeight) {
                     window.scroll(0, location * window.innerHeight);
                     clearInterval(this.state.intervalId);
@@ -30,7 +30,7 @@ const ScrollHOC = (Wrapped) => {
 
         scrollUpStep() {
             const location = this.props.location;
-            if(this.props.enable) {
+            if(this.props.enable === 'true') {
                 if (window.pageYOffset - scrollDownStepInPx < location * window.innerHeight) {
                     window.scroll(0, location * window.innerHeight);
                     clearInterval(this.state.intervalId);
