@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import ScrollHOC from './ScrollHOC';
 
 class Home extends Component {
   render() {
@@ -7,12 +7,22 @@ class Home extends Component {
       <div className="home-page">
           <img className="home-gif" src={'./cat.gif'} alt="Giphy~"/>
           <h1 className="home-title">GIFI TRANSLATE</h1>
-          <Link to="/main">
-            <p className="start">START</p>
-          </Link>
+          <ScrollStart location={1} enable='true'/>
       </div>
     );
   }
 }
+
+class ScrollStartContent extends Component {
+  render() {
+    return (
+      <div className="start-scroll" onClick={this.props.onClick}>
+        <p className="start">START</p>
+      </div>
+    )
+  }
+}
+
+const ScrollStart = ScrollHOC(ScrollStartContent);
 
 export default Home;

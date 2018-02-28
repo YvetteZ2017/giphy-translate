@@ -9,10 +9,8 @@ body {
 
 .home-page {
   background: linear-gradient(to bottom right, #3494e6, #ec6ead);
-  /* position: fixed; */
-  top: 0;
   min-height: 100vh;
-  min-width: 100vw;
+  width: 100vw;
   color: white;
 }
 
@@ -24,23 +22,31 @@ body {
 .home-gif {
   max-height: 18em;
   height: 30vh;
-  position: fixed;
+  position: relative;
   left: -30vw;
   top: 30vh;
   animation: gif 7s linear 2s infinite;
 }
 
+.home-title {
+  position: relative;
+  top: 40vh;
+  left: calc((100vw - 262.5px)/ 2);
+  font-size: 2em;
+  font-weight: 700;
+}
 
 .start {
   text-decoration: none;
   color: #84b5ff;
-  position: fixed;
+  position: relative;
   padding: 0.3em 0.6em;
   display: block;
   font-size: 1.2em;
   border: 2px solid #84b5ff;
   left: calc((100vw - 88.22px)/2);
-  top: 80vh;
+  top: 45vh;
+  width: 5.5rem;
 }
 
 .start:hover {
@@ -48,34 +54,29 @@ body {
   transform: scale(1.2, 1.2)
 }
 
-.home-title {
-  position: fixed;
-  top: 65vh;
-  left: calc((100vw - 262.5px)/ 2);
-  font-size: 2em;
-  font-weight: 700;
-}
 
 /* ---------------Main-------------------- */
 .main-page {
   margin: 0 auto;
   /* background-color: white; */
-  background: linear-gradient(225deg, #3494e6, #ec6ead);
+  background: linear-gradient(225deg, #3494e6, #ec6ead, #3494e6);
   top: 0;
   min-height: 100vh;
   min-width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 
 
 #menu {
   /* max-height: 40vh; */
-  position: fixed;
+  /* position: fixed; */
   min-height: 28vh;
   /* height: 28vh; */
   width: 100%;
   z-index: 2;
-  top:0;
-  left: 0;
+  /* top:0; */
+  /* left: 0; */
   background: rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
@@ -83,7 +84,7 @@ body {
 }
 
 #main-view {
-  padding-top: 30vh;
+  /* padding-top: 30vh; */
   display: flex;
   flex-direction: column;
 }
@@ -254,7 +255,7 @@ form {
 }
 
 #section-search {
-  margin: 2vh auto 10vh auto;
+  margin: 2vh auto 6em auto;
 }
 
 /* ---------------Grid-------------------- */
@@ -304,7 +305,7 @@ form {
 
 /* ---------------Responsive-------------------- */
 
-@media screen and (max-height: 650px) {
+@media screen and (max-width: 450px) {
   .link-home .home-icon {
     visibility: hidden;
   }
@@ -320,24 +321,15 @@ form {
     font-size: 8vw;
   }
 
-  #main-view {
-    padding-top: 48vw;
-  }
-
   .gif-grid {
     max-width: 80vw;
   }
 }
 
-@media screen and (max-height: 520px) and (max-width: 300px){
-  #main-view {
-    padding-top: 60vw;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  #main-view {
-    padding-top: 90vw;
+@media screen and (max-width: 300px) {
+  .home-title {
+    font-size: 10vw;
+    left: 8vw;
   }
 }
 
@@ -365,16 +357,21 @@ form {
   }
 }
 
-@media screen and (max-height: 520px) and (max-width: 465px){
+@media screen and (max-height: 520px) {
   .arrow-down {
     visibility: hidden;
   }
-
-  #main-view {
-    padding-top: 50vw;
-  }
 }
 
+@media screen and (max-height: 430px) {
+  .start {
+    padding: 0.2vh 0.5vh;
+    font-size: 5vh;
+    left: calc(50vw - 9vh);
+    width: 18vh;
+    top: 40vh;
+  }
+}
 
 
 @media screen and (max-width: 800px) {

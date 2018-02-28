@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Input, GifList, GifItem, GifModal, ViewTerm, Scroll } from './';
+import { Input, GifList, GifItem, GifModal, ViewTerm, ScrollToGrid, Home } from './';
 import { fetchTranslateGif } from '../store/';
 
 
@@ -18,13 +17,15 @@ class Main extends Component {
     }
 
     render() {
+        const gifsLoaded = this.props.gifs && this.props.gifs.length > 1;
         return (
         <div className="main-page">
+            <Home />
             <div id='menu'>
-                <Link className="link-home" style={{textDecoration: "none"}} to="/">
+                <div className="link-home">
                     <h2>GIFI TRANSLATE</h2>
                     <div className="home-icon"><i className="fab fa-sistrix fa-4x"></i></div>
-                </Link>
+                </div>
                 <Input />
             </div>
 
@@ -38,7 +39,7 @@ class Main extends Component {
                             <div className="place-holder"></div>
                         }
                     </div>
-                    <Scroll scrollStepInPx="50" delayInMs="20"/>
+                    <ScrollToGrid location={2} enable={gifsLoaded.toString()}/>
                 </section>
                 <section id='section-search'>
                     <GifList />
@@ -54,7 +55,8 @@ const mapStateToProps = (state) => {
     return {
         input: state.input,
         select: state.select,
-        main: state.gifs[0]
+        main: state.gifs[0],
+        gifs: state.gifs
     }
 }
 
