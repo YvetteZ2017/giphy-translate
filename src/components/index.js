@@ -6,3 +6,4 @@ export {default as GifItem} from './GifItem';
 export {default as GifModal} from './GifModal';
 export {default as ViewTerm} from './ViewTerm';
 export {default as ScrollToGrid} from './ScrollToGrid';
+export {default as ScrollToHome} from './ScrollToHome';

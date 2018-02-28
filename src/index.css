@@ -58,7 +58,6 @@ body {
 /* ---------------Main-------------------- */
 .main-page {
   margin: 0 auto;
-  /* background-color: white; */
   background: linear-gradient(225deg, #3494e6, #ec6ead, #3494e6);
   top: 0;
   min-height: 100vh;
@@ -69,14 +68,9 @@ body {
 
 
 #menu {
-  /* max-height: 40vh; */
-  /* position: fixed; */
   min-height: 28vh;
-  /* height: 28vh; */
   width: 100%;
   z-index: 2;
-  /* top:0; */
-  /* left: 0; */
   background: rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
@@ -84,7 +78,6 @@ body {
 }
 
 #main-view {
-  /* padding-top: 30vh; */
   display: flex;
   flex-direction: column;
 }
@@ -106,15 +99,19 @@ body {
   min-height: 5em;
 }
 
+.link-home:hover {
+  background: linear-gradient(0deg, #fc00ff, #00dbde);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #3494e6;
+}
+
 .link-home h2 {
   font-size: 2em;
   font-weight: 900;
   margin-right: 0.4em;
   align-items: center;
   color: white;
-  /* background: linear-gradient(330deg, #3494e6, #ec6ead);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
 }
 
 @keyframes logo-spin {
@@ -126,6 +123,10 @@ body {
   align-self: center;
   animation: logo-spin 10s linear infinite;
   color:white;
+}
+
+.home-icon:hover {
+  color: #3494e6;
 }
 
 .flex-col {
@@ -167,6 +168,22 @@ form {
   max-height: 40vh;
   max-width: 40vw;
   width: auto;
+}
+
+.scroll-search {
+  opacity: 0.3;
+  background: #84BAFD;
+  width: 5em;
+  height: 5em;
+  position: relative;
+  border-radius: 5px;
+  bottom: 20vh;
+  border: none;
+  color: white;
+}
+
+.scroll-search:hover {
+  opacity: 1;
 }
 
 /* ---------------Input-------------------- */

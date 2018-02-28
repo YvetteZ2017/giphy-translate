@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Input, GifList, GifItem, GifModal, ViewTerm, ScrollToGrid, Home } from './';
+import { Input, GifList, GifItem, GifModal, ViewTerm, ScrollToGrid, Home, ScrollToHome} from './';
 import { fetchTranslateGif } from '../store/';
 
 
@@ -22,10 +22,7 @@ class Main extends Component {
         <div className="main-page">
             <Home />
             <div id='menu'>
-                <div className="link-home">
-                    <h2>GIFI TRANSLATE</h2>
-                    <div className="home-icon"><i className="fab fa-sistrix fa-4x"></i></div>
-                </div>
+                <ScrollToHome location={0} direction='up' enable='true' />
                 <Input />
             </div>
 
@@ -68,8 +65,3 @@ const mapDispatchToProps = (dispatch) => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
-
-// <div className='arrow-down'>
-// <p>More</p>
-// <i className="fas fa-angle-double-down fa-2x"></i>
-// </div>

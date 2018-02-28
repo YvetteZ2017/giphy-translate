@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-const scrollStepInPx=50, delayInMs=20;
+const scrollDownStepInPx=50, delayInMs=20;
 const ScrollHOC = (Wrapped) => {
     return class Scroll extends Component {
         constructor() {
@@ -9,32 +9,51 @@ const ScrollHOC = (Wrapped) => {
             this.state = {
                 intervalId: 0
             };
-            this.scrollDown = this.scrollDown.bind(this);
-            this.scrollStep = this.scrollStep.bind(this);
+            this.scroll = this.scroll.bind(this);
+            this.scrollDownStep = this.scrollDownStep.bind(this);
+            this.scrollUpStep = this.scrollUpStep.bind(this);
         }
 
-        scrollStep() {
+        scrollDownStep() {
             const location = this.props.location;
-            console.log('enable', this.props.enable)
             if(this.props.enable) {
-                if (window.pageYOffset + scrollStepInPx > location * window.innerHeight) {
+                if (window.pageYOffset + scrollDownStepInPx > location * window.innerHeight) {
                     window.scroll(0, location * window.innerHeight);
                     clearInterval(this.state.intervalId);
                 } else {
-                    window.scroll(0, window.pageYOffset + scrollStepInPx);
+                    window.scroll(0, window.pageYOffset + scrollDownStepInPx);
                 }
             } else {
                 clearInterval(this.state.intervalId);
             }
         }
 
-        scrollDown() {
-            let intervalId = setInterval(this.scrollStep, delayInMs);
-            this.setState({ intervalId: intervalId });
+        scrollUpStep() {
+            const location = this.props.location;
+            if(this.props.enable) {
+                if (window.pageYOffset - scrollDownStepInPx < location * window.innerHeight) {
+                    window.scroll(0, location * window.innerHeight);
+                    clearInterval(this.state.intervalId);
+                } else {
+                    window.scroll(0, window.pageYOffset - scrollDownStepInPx);
+                }
+            } else {
+                clearInterval(this.state.intervalId);
+            }
+        }
+
+        scroll() {
+            if(this.props.direction === 'up') {
+                let intervalId = setInterval(this.scrollUpStep, delayInMs);
+                this.setState({ intervalId });
+            } else {
+                let intervalId = setInterval(this.scrollDownStep, delayInMs);
+                this.setState({ intervalId });
+            }
         }
 
         render () {
-            return <Wrapped onClick={this.scrollDown} {...this.props}/>
+            return <Wrapped onClick={this.scroll} {...this.props}/>
         }
     }
 }
