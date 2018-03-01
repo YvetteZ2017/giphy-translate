@@ -1,5 +1,5 @@
-# [Giphy Translate]
-(https://giphy-translate.firebaseapp.com/)
+# Giphy Translate
+https://giphy-translate.firebaseapp.com/
 ## Install
 `npm install`
 
